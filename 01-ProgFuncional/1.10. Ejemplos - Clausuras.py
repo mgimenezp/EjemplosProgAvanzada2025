@@ -22,3 +22,12 @@ mi_contador = crear_contador(5)
 # Llama a la función para obtener y aumentar el contador
 print(mi_contador())  # Salida: 6
 print(mi_contador())  # Salida: 7
+
+# Ejemplo 2: Si no tuvieramos la clausura, no podríamos mantener el estado
+def crear_contador_sin_clausura(inicio):
+    """Crea un contador sin clausura, lo que no permite mantener el estado."""
+    contador = inicio
+    def obtener_y_aumentar():
+        """Incrementa y devuelve el valor del contador."""
+        return contador + 1  # Siempre devuelve el mismo valor
+    return obtener_y_aumentar   
