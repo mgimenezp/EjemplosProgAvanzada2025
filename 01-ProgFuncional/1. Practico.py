@@ -160,7 +160,7 @@ print(" Lista original:", lista)
 print(" Lista con los cuadrados:", map_con_reduce(funcion, lista))
 
 #
-# Ejemplo 12:
+# Ejercicio 12:
 # Crear una función, con nombre filter_con_reduce, que reciba una función de filtro y una lista de elementos y 
 #  y devuelva una lista de elementos que cumplen el filtro (misma funcionalidad de filter)
 #  pero usando solo la función reduce. 
@@ -415,7 +415,7 @@ print("Ejercicio 25:")
 print(f" Lista de los primeros {cantidad} números divisibles por {divisor}:", divisible_por(divisor, cantidad))
 
 #
-# Ejemplo 26:
+# Ejercicio 26:
 # Crear una función, con nombre factorial_iterador_yield, que no tenga parámetros de entrada y devuelva el próximo número 
 #  de la secuencia de números de factorial, con evaluación perezosa usando función generadora (sentencia yield). 
 # La secuencia de números a devolver es: 1, 2, 6, etc. 
@@ -435,7 +435,7 @@ for _, factorial in zip(range(n+1), factorial_iterador_yield()):
 print("")
 
 #
-# Ejemplo 27:
+# Ejercicio 27:
 # Crear una clase, con nombre FactorialIterador, que no tenga parámetros de entrada y devuelva el próximo número 
 #  de la secuencia de números de factorial, con evaluación perezosa usando una clase como implementación de iterador. 
 #
@@ -459,7 +459,7 @@ for _, factorial in zip(range(n+1), factorial_iterador_clase):
 print("")
 
 #
-# Ejemplo 28:
+# Ejercicio 28:
 # Crear una función, con nombre obtener_primos, que no tenga parámetros de entrada y devuelva el próximo número primo, 
 #  con evaluación perezosa usando generador de funciones (sencencia yield). 
 #
@@ -639,6 +639,28 @@ texto_con_prefijo_sufijo = sufijo(texto)
 print(" Ejercicio 34:")
 print("Funciones currificadas aplicadas a un texto:")
 print(texto)
-print(texto_upper)                # 'HOLA AMIGO'
+print(texto_mayusculas)                # 'HOLA AMIGO'
 print(texto_reemplazado)           # '¡Hola! amigo'
 print(texto_con_prefijo_sufijo)    # '>>> Hola amigo <<<'
+
+from functools import partial
+
+# Ejercicio 35:
+# Crear una función que calcule la potencia con base fija 2
+potencia_de_2 = partial(pow, 2)
+
+# Usar la función para calcular 2 elevado a diferentes exponentes
+print("Ejercicio 35:")
+print(potencia_de_2(3))  # 2^3 = 8
+print(potencia_de_2(4))  # 2^4 = 16
+print(potencia_de_2(5))  # 2^5 = 32
+
+# Ejercicio 36:
+# Crear una función que calcule el área de un círculo con un radio fijo
+def area_circulo(radio):
+    from math import pi
+    return pi * radio ** 2
+
+area_circulo_fijo = partial(area_circulo, 5)  # Radio fijo de 5 
+print("Ejercicio 36:")
+print("Área del círculo con radio 5:", area_circulo_fijo())  # 78.53981633974483         
